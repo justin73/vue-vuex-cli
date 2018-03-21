@@ -7,7 +7,7 @@
 </template>
 
 <script>
-
+import { mapActions } from 'vuex'
 export default {
   name: 'HeroList',
   data () {
@@ -19,6 +19,10 @@ export default {
     selectedHero (index) {
       this.$emit('clickItem', this.heroList[index])
       this.$store.commit('increment', 10)
+
+      this.$store.dispatch('incrementAsync', {
+        amount: 10
+      })
     }
   },
   mounted () {
