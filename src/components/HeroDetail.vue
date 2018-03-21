@@ -1,8 +1,27 @@
 <template>
   <div class="hello">
-    {{detail}}
+    <md-card md-with-hover>
+      <md-card-header>
+        <md-card-header-text>
+          <div class="md-title">Selected Hero</div>
+        </md-card-header-text>
+      </md-card-header>
+      <md-card-content>
+        <p>Name : {{detail.name}} </p>
+        <p>Gender: {{detail.gender}}</p>
+      </md-card-content>
+    </md-card>
   </div>
 </template>
+
+<style lang="scss" scoped>
+  .md-card {
+    width: 320px;
+    margin: 4px;
+    display: inline-block;
+    vertical-align: top;
+  }
+</style>
 
 <script>
 export default {
@@ -18,3 +37,4 @@ export default {
   created () {}
 }
 </script>
+

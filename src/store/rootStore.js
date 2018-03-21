@@ -14,7 +14,7 @@ export const store = new Vuex.Store({
   getters: {
     getMovieList: state => state.movieList
   },
-  // async
+  // asynca
   actions: {
     incrementAsync: context => context.commit('increment')
   }
