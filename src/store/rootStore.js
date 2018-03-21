@@ -5,12 +5,17 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
-    count: 0
+    count: 0,
+    movieList: []
   },
   mutations: {
     increment: state => state.count++
   },
+  getters: {
+    getMovieList: state => state.movieList
+  },
+  // async
   actions: {
-    increment: context => context.commit('increment')
+    incrementAsync: context => context.commit('increment')
   }
 })
