@@ -3,11 +3,16 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import { store } from './store/rootStore'
+import store from './store/rootStore'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
 
+Vue.use(VueMaterial)
 Vue.config.productionTip = false
+
+Vue.config.ignoredElements = [
+  'paper-card'
+]
 
 /* eslint-disable no-new */
 new Vue({
@@ -17,5 +22,3 @@ new Vue({
   template: '<App msg="from main.js"/>',
   store: store
 })
-
-Vue.use(VueMaterial)

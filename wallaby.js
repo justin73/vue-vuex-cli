@@ -2,7 +2,6 @@ const webpackConfig = require('./build/webpack.test.conf.js')
 const wallabyWebpack = require('wallaby-webpack')
 
 module.exports = function (wallaby) {
-
   return {
     files: [
       'src/**/*.*',
@@ -27,13 +26,13 @@ module.exports = function (wallaby) {
     testFramework: 'jest',
 
     setup: function (wallaby) {
-      const jestConfig = require('./package.json').jest;
+      const jestConfig = require('./package.json').jest
       jestConfig.moduleNameMapper = {
-        "^@/(.*)$": wallaby.projectCacheDir + "/src/$1"
-      };
-      wallaby.testFramework.configure(jestConfig);
+        '^@/(.*)$': wallaby.projectCacheDir + '/src/$1'
+      }
+      wallaby.testFramework.configure(jestConfig)
     },
 
     debug: true
-  };
-};
+  }
+}

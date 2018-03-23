@@ -1,39 +1,33 @@
 <template>
-  <div class="hello">
-    <md-card md-with-hover>
+  <div>
+    <!-- {{detail}} -->
+    <md-card v-if="detail">
       <md-card-header>
-        <md-card-header-text>
-          <div class="md-title">Selected Hero</div>
-        </md-card-header-text>
+        <div class="md-title">Selected Hero</div>
       </md-card-header>
+
       <md-card-content>
-        <p>Name : {{detail.name}} </p>
-        <p>Gender: {{detail.gender}}</p>
+        <p>Name: {{detail.name}}</p>
+        <p>Description: {{detail.gender}} with {{detail.hair_color}} hair
+          and {{detail.eye_color}} eye.
+        </p>
+        <HeroPlanet/>
       </md-card-content>
     </md-card>
   </div>
 </template>
 
-<style lang="scss" scoped>
-  .md-card {
-    width: 320px;
-    margin: 4px;
-    display: inline-block;
-    vertical-align: top;
-  }
-</style>
-
 <script>
+import store from './../store/rootStore'
+import HeroPlanet from './HeroPlanet.vue'
+import { mapState } from 'vuex'
 export default {
   name: 'HeroDetail',
-  data () {
-    return {
-      name: ''
-    }
+  components: {
+    HeroPlanet
   },
-  props: {
-    detail: Object
-  },
-  created () {}
+  computed: mapState({
+    detail: () => store.getters.getSelectedHero
+  })
 }
 </script>
